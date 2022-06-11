@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+
+  user:
+    image: 'chess-user'
+    build: build/user
+
+  action:
+    image: 'chess-action'
+    build: ./build/action

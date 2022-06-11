@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "./proto/user";
+
+// 用户注册
+message user_register_request {
+  string username = 1;
+  string password = 2;
+  string email    = 3;
+}
+message user_register_response {
+  int32  status_code = 1;
+  string status_msg = 2;
+  int64  user_id = 3;
+  string token= 4;
+}
+
+//用户登录
+message user_login_request {
+  string account = 1;
+  string password = 2;
+}
+
+message user_login_response {
+  int32  status_code = 1;
+  string status_msg = 2;
+  int64  user_id = 3;
+  string token= 4;
+}
+
+
+// 用户信息
+message user_request {
+  int64 user_id = 1;
+  string token = 2;
+}
+
+message user_response {
+  int32  status_code = 1;
+  string status_msg = 2;
+  User   user = 3;
+}
+
+message User{
+  int64  id=1;
+  string name=2;
+  int64  follow_count=3;
+  int64  follower_count=4;
+  bool   is_follow =5;
+  string email=6;
+  string avatar=7;
+  int64  coin=8;
+  string phone=9;
+  string signature=10;
+}
+
+service UserService {
+  rpc UserLogin(user_login_request) returns(user_login_response);
+  rpc UserRegister(user_register_request) returns(user_register_response);
+  rpc UserInfo(user_request) returns(user_response);
+}
