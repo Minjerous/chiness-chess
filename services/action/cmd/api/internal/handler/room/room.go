@@ -1,9 +1,9 @@
 package room
 
 import (
-	"action-game/cmd/api/internal/config"
-	"action-game/cmd/api/internal/dao"
-	"action-game/model"
+	"chess-action/cmd/api/internal/config"
+	"chess-action/cmd/api/internal/dao"
+	"chess-action/model"
 	"chess-common/httpcode"
 	"chess-common/jwt"
 	"chess-common/rep"

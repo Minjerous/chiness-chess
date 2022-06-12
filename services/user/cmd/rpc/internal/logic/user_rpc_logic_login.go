@@ -4,7 +4,6 @@ import (
 	"chess-common/cryptx"
 	"chess-common/httpcode"
 	"chess-common/jwt"
-	"chess-common/tool"
 	"chess-user/cmd/rpc/internal/config"
 	"chess-user/cmd/rpc/internal/dao"
 	"chess-user/cmd/rpc/proto/user"
@@ -15,11 +14,8 @@ import (
 func Login(req *user.UserLoginRequest) (res *user.UserLoginResponse, err error) {
 	JwtCfg := config.GetUserCfg().Jwt
 	var userModel model.User
-	if !tool.VerifyEmailFormat(req.Account) {
-		userModel, err = dao.GetUserInfo(dao.UserName(req.Account))
-	} else {
-		userModel, err = dao.GetUserInfo(dao.UserEmail(req.Account))
-	}
+
+	userModel, err = dao.GetUserInfo(dao.UserName(req.Account))
 
 	if err != nil {
 		res.StatusCode = 500

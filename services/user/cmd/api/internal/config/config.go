@@ -50,7 +50,7 @@ func GetUserCfg() *UserConfig {
 }
 
 func PareConfig() {
-	file, err := os.Open("./cmd/api/internal/config/user.yml")
+	file, err := os.Open("./internal/config/user.yml")
 	if err != nil {
 		panic(err)
 	}

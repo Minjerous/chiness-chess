@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"action-game/model"
+	"chess-action/model"
 	"gorm.io/gorm"
 )
 
