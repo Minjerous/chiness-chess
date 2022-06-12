@@ -1,11 +1,10 @@
 package main
 
 import (
-	"chess-action/cmd/api/internal/config"
-	"chess-action/cmd/api/internal/dao"
-	"chess-action/cmd/api/internal/handler"
+	"action-game/cmd/api/internal/config"
+	"action-game/cmd/api/internal/dao"
+	"action-game/cmd/api/internal/handler"
 	"chess-common/rest"
-
 	"github.com/gin-gonic/gin"
 )
 

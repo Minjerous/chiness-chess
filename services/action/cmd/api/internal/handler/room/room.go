@@ -1,13 +1,13 @@
 package room
 
 import (
+	"action-game/cmd/api/internal/config"
+	"action-game/cmd/api/internal/dao"
+	"action-game/model"
 	"chess-common/httpcode"
 	"chess-common/jwt"
 	"chess-common/rep"
 	"chess-common/tool"
-	"chess-game/cmd/api/internal/config"
-	"chess-game/cmd/api/internal/dao"
-	"chess-game/model"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )

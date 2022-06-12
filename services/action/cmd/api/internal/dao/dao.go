@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"chess-game/cmd/api/internal/config"
-	"chess-game/model"
+	"action-game/cmd/api/internal/config"
+	"action-game/model"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
