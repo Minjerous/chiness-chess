@@ -63,13 +63,11 @@ func Create(ctx *gin.Context) {
 		return
 	}
 
-	var roomId int64
-	dao.DB.Select("id").Find(&roomId)
 	ctx.JSON(200, gin.H{
 		"msg":       "房间创建成功",
 		"code":      "200",
 		"room_name": Room.Name,
-		"room_id":   roomId,
+		"room_id":   Room.RoomID,
 	})
 
 }
