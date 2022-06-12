@@ -1,6 +1,6 @@
 package main
 
-import "chess-game/chess-client/chess"
+import "chess-action/chess-client/chess"
 
 func main() {
 	//https://github.com/Capricornwqh/ChineseChess
