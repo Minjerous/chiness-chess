@@ -16,8 +16,8 @@ func main() {
 	var (
 		usrCfg = config.GetUserCfg()
 		srv    = grpc.NewServer(
-		//grpc.StreamInterceptor(streamInterceptor),
-		//grpc.UnaryInterceptor(unaryInterceptor),
+			grpc.StreamInterceptor(streamInterceptor),
+			grpc.UnaryInterceptor(unaryInterceptor),
 		)
 
 		lis, err = net.Listen("tcp", usrCfg.UserRpc.Hosts+":"+usrCfg.UserRpc.Port)

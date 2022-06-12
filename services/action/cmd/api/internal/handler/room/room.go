@@ -1,13 +1,13 @@
 package room
 
 import (
-	"chess-action/cmd/api/internal/config"
-	"chess-action/cmd/api/internal/dao"
-	"chess-action/model"
 	"chess-common/httpcode"
 	"chess-common/jwt"
 	"chess-common/rep"
 	"chess-common/tool"
+	"chess-game/cmd/api/internal/config"
+	"chess-game/cmd/api/internal/dao"
+	"chess-game/model"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )
@@ -114,14 +114,6 @@ func EnterWS(ctx *gin.Context) {
 
 		return
 	}
-
-	//Mq := config.GetUserCfg().Mq
-
-	//mq.SendMessage(&mq.Claim{
-	//	User: Mq.User,
-	//	Host: Mq.Host,
-	//	Port: Mq.Port,
-	//	PW:   Mq.PassWord,
-	//}, UserClaims.Uid)
+	tool.RespSuccessfulWithData(ctx, "加入房间成功")
 
 }

@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"chess-action/cmd/api/internal/handler/room"
+	"chess-game/cmd/api/internal/handler/room"
 	"github.com/gin-gonic/gin"
 )
 

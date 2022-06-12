@@ -1,4 +1,4 @@
-module chess-action
+module action-game
 
 go 1.18
 

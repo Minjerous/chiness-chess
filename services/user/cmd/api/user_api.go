@@ -9,7 +9,6 @@ import (
 	"context"
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
 	"log"
 )
 
@@ -34,10 +33,14 @@ var UserClient user.UserServiceClient
 
 func main() {
 	config.PareConfig()
-	//certificate, err := tls.LoadX509KeyPair("./user.pem", "./user.key") 懒得弄CA了
+	//certificate, err := tls.LoadX509KeyPair("./internal/config/user.pem", "./internal/config/user.pem")
 	UserCfg := config.GetUserCfg()
 
-	Conn, err := grpc.Dial(UserCfg.UserRpc.Hosts, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	//Debug :  Conn, err := grpc.Dial(UserCfg.UserRpc.Hosts, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	Conn, err := grpc.Dial(UserCfg.UserRpc.Hosts, grpc.WithPerRPCCredentials(&loginCreds{
+		Username: config.GetUserCfg().Name,
+		Password: config.GetUserCfg().UserRpc.Key,
+	}))
 
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
